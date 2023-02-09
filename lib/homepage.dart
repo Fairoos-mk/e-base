@@ -1,6 +1,5 @@
 import 'package:e_lab/datastore/data.dart';
 import 'package:flutter/material.dart';
-import '../main.dart';
 
 
 class homepage extends StatefulWidget {
@@ -20,6 +19,9 @@ class _homepageState extends State<homepage> {
             scrollDirection: Axis.vertical,
             child:Column(
                 children:[
+                  SizedBox(
+                    height: 550,
+                  ),
                   Container(
                     margin: EdgeInsets.all(30.0),
                     width: double.infinity,
@@ -38,6 +40,9 @@ class _homepageState extends State<homepage> {
                       color: Colors.green[900],
                       borderRadius: BorderRadius.circular(30.0),
                     ),
+                  ),
+                  SizedBox(
+                    height: 0.01 ,
                   ),
                   Container(
                     margin: EdgeInsets.all(30.0),
