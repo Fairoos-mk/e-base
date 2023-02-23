@@ -1,6 +1,9 @@
 import 'package:e_lab/datastore/data.dart';
+import 'package:e_lab/home.dart';
 import 'package:flutter/material.dart';
 
+import 'billing/billing.dart';
+import 'e-store/store1.dart';
 
 class homepage extends StatefulWidget {
   @override
@@ -12,7 +15,27 @@ class _homepageState extends State<homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.green[900],
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.local_print_shop_sharp),
+            tooltip: 'billing',
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_)=> Billing1()));
+            },
+
+          ),
+          IconButton(
+            icon: const Icon(Icons.local_grocery_store_outlined),
+            tooltip: 'E-store',
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_)=> Store1()));
+            },
+
+          ),
+        ],
+      ),
       body:Stack(
         children: [
           SingleChildScrollView(
@@ -21,47 +44,6 @@ class _homepageState extends State<homepage> {
                 children:[
                   SizedBox(
                     height: 550,
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(30.0),
-                    width: double.infinity,
-                    child: TextButton(
-                      onPressed: () {
-                        print('Login');
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=> Data()));
-                      },
-                      child: Text(
-                        'E-Spot',
-                        style:
-                        TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.green[900],
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 0.01 ,
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(30.0),
-                    width: double.infinity,
-                    child: TextButton(
-                      onPressed: () {
-                        print('Login');
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=> Data()));
-                      },
-                      child: Text(
-                        'E-lab',
-                        style:
-                        TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.green[900],
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
                   ),
                 ]
             ),
@@ -75,6 +57,9 @@ class _homepageState extends State<homepage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.green[900],
+              ),
               accountName: Text(''),
               accountEmail: Text("fairoos@gmail.com"),
               currentAccountPicture: CircleAvatar(
@@ -90,45 +75,42 @@ class _homepageState extends State<homepage> {
             ListTile(
               leading: Icon(Icons.import_contacts), title: Text("Import contact"),
               onTap: () {
-                Navigator.pop(context);
-              },
-            ),ListTile(
-              leading: Icon(Icons.security), title: Text("Security"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),ListTile(
-              leading: Icon(Icons.home), title: Text("Home"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),ListTile(
-              leading: Icon(Icons.share), title: Text("Share"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),ListTile(
-              leading: Icon(Icons.save_alt), title: Text("Save"),
-              onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_)=> Data()));
               },
             ),
             ListTile(
               leading: Icon(Icons.settings), title: Text("Settings"),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_)=> Data()));
               },
             ),
             ListTile(
               leading: Icon(Icons.contacts), title: Text("Contact Us"),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_)=> Data()));
+              },
+            ),
+            SizedBox(
+              height: 280,
+            ),
+            ListTile(
+              leading: Icon(Icons.logout_outlined), title: Text("LogOut"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_)=> Data()));
               },
             ),
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_)=> Home()));
+        },
+        backgroundColor: Colors.green[900],
+        foregroundColor: Colors.black,
+        child: Icon(Icons.add ),
 
+      ),
     );
   }}
 
